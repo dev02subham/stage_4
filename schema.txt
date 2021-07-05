@@ -1,0 +1,91 @@
+CREATE TABLE 
+ip_treatment_packages
+(
+	ailment_category  VARCHAR(50) PRIMARY KEY,
+	package_detail VARCHAR(50),
+	treatment_package_name VARHCAR(50),
+	test_details VARCHAR,
+	cost DOUBLE,
+	treatment_duration INT
+);
+
+CREATE TABLE 
+specialist_detail
+(
+	name VARCHAR(50),
+	area_of_expertise VARCHAR(50),
+	experience_in_years INT,
+	contact_number BIGINT
+);
+
+
+CREATE TABLE
+patient_detail
+(
+	name VARCHAR,
+	age INT,
+	ailment VARCHAR
+	treatment_package_name VARCHAR,
+	treatment_commencement_date DATE
+);
+
+CREATE TABLE
+treatment_plan
+(
+	package_name VARCHAR,
+	test_details VARCHAR
+	cost DOUBLE,
+	specialist VARCHAR,
+	treatment_commencement_date DATE,
+	treatment_end_date DATE
+);
+
+CREATE TABLE
+insurer_detail
+(
+	insurer_name VARCHAR, 
+	insurer_package_name VARCHAR,
+	insurance_amount_limit DOUBLE,
+	disbursement_duration INT
+);
+
+CREATE TABLE
+initiate_claim
+(
+	patient_name VARCHAR,
+	ailment VARCHAR,
+	treatment_package_name VARCHAR,
+	insurer_name VARCHAR
+);
+-------------------------------------------
+INSERT INTO 
+TABLE ip_treatment_packages
+VALUES ('Orthopaedics', 'package1', 'OPT1, OPT2', 2500, 4);
+
+INSERT INTO 
+TABLE specialist_detail
+VALUES ('Ujjwal', 'Orthopaedics', 10, 9999999999 );
+
+INSERT INTO 
+TABLE patient_detail
+VALUES ('Shubham', '21','Urology','Package 1','23/7/2');
+
+INSERT INTO 
+TABLE treatment_plan
+VALUES ('package1', 'OPT1, OPT2' 5000, 'Guru Sai', '2021-07-15', '2021-07-25');
+
+INSERT INTO TABLE insurer_detail
+VALUES ('Raj','Health', 150000, 10);
+
+INSERT INTO 
+TABLE initiate_claim
+VALUES ('Shyam','Urology','Package1','Amit Upadhyay');
+
+
+-------------------------------------------------------------------------------------
+Subham Santra 		: IP treatment offerings Microservice 
+Rhishabh Kothari	: IPTreatment Microservice
+Ujjwal 			: InsuranceClaim Microservice
+Nikky Gupta 		: Authorization Microservice
+C Guru Sai 		: IP treatment management portal
+-------------------------------------------------------------------------------------
