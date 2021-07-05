@@ -69,26 +69,27 @@ initiate_claim
 DML
 --------------------------------------------
 INSERT INTO 
-TABLE ip_treatment_packages
+ip_treatment_packages
 VALUES ('Orthopaedics', 'package1', 'OPT1, OPT2', 2500, 4);
 
 INSERT INTO 
-TABLE specialist_detail
+specialist_detail
 VALUES (1, 'Ujjwal', 'Orthopaedics', 10, 9999999999 );
 
 INSERT INTO 
-TABLE patient_detail
+patient_detail
 VALUES (2, 'Subham', '21','Urology','package1','2021-07-02');
 
 INSERT INTO 
-TABLE treatment_plan
-VALUES (3, 'package1', 'OPT1, OPT2' 5000, 'Guru Sai', '2021-07-15', '2021-07-25');
+treatment_plan
+VALUES (3, 'package1', 'OPT1, OPT2', 5000, 'Guru Sai', '2021-07-15', '2021-07-25');
 
-INSERT INTO TABLE insurer_detail
+INSERT INTO
+insurer_detail
 VALUES (1, 'Raj','Health', 150000, 10);
 
 INSERT INTO 
-TABLE initiate_claim
+initiate_claim
 VALUES (1, 'Shyam','Urology','Package1','Amit Upadhyay');
 
 -------------------------------------------------------------------------------------
