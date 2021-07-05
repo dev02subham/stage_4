@@ -1,10 +1,13 @@
+-------------------------------------------
+DDL
+-------------------------------------------
 CREATE TABLE 
 ip_treatment_packages
 (
 	ailment_category  VARCHAR(50) PRIMARY KEY,
-	package_detail VARCHAR(50),
-	treatment_package_name VARHCAR(50),
-	test_details VARCHAR,
+	package_detail VARCHAR(50) NOT NULL,
+	treatment_package_name VARHCAR(50) NOT NULL,
+	test_details VARCHAR(50) NOT NULL,
 	cost DOUBLE,
 	treatment_duration INT
 );
@@ -12,6 +15,7 @@ ip_treatment_packages
 CREATE TABLE 
 specialist_detail
 (
+	id INT PRIMARY KEY,
 	name VARCHAR(50),
 	area_of_expertise VARCHAR(50),
 	experience_in_years INT,
@@ -22,20 +26,22 @@ specialist_detail
 CREATE TABLE
 patient_detail
 (
-	name VARCHAR,
+	id INT PRIMARY KEY,
+	name VARCHAR(50),
 	age INT,
-	ailment VARCHAR
-	treatment_package_name VARCHAR,
+	ailment VARCHAR(50),
+	treatment_package_name VARCHAR(50),
 	treatment_commencement_date DATE
 );
 
 CREATE TABLE
 treatment_plan
 (
-	package_name VARCHAR,
-	test_details VARCHAR
+	id INT PRIMARY KEY,
+	package_name VARCHAR(50),
+	test_details VARCHAR(50),
 	cost DOUBLE,
-	specialist VARCHAR,
+	specialist VARCHAR(50),
 	treatment_commencement_date DATE,
 	treatment_end_date DATE
 );
@@ -43,7 +49,8 @@ treatment_plan
 CREATE TABLE
 insurer_detail
 (
-	insurer_name VARCHAR, 
+	id INT PRIMARY KEY,
+	insurer_name VARCHAR(50), 
 	insurer_package_name VARCHAR,
 	insurance_amount_limit DOUBLE,
 	disbursement_duration INT
@@ -52,36 +59,40 @@ insurer_detail
 CREATE TABLE
 initiate_claim
 (
-	patient_name VARCHAR,
-	ailment VARCHAR,
-	treatment_package_name VARCHAR,
-	insurer_name VARCHAR
+	id INT PRIMARY KEY,
+	patient_name VARCHAR(50),
+	ailment VARCHAR(50),
+	treatment_package_name VARCHAR(50),
+	insurer_name VARCHAR(50)
 );
 -------------------------------------------
+DML
+--------------------------------------------
 INSERT INTO 
 TABLE ip_treatment_packages
 VALUES ('Orthopaedics', 'package1', 'OPT1, OPT2', 2500, 4);
 
 INSERT INTO 
 TABLE specialist_detail
-VALUES ('Ujjwal', 'Orthopaedics', 10, 9999999999 );
+VALUES (1, 'Ujjwal', 'Orthopaedics', 10, 9999999999 );
 
 INSERT INTO 
 TABLE patient_detail
-VALUES ('Shubham', '21','Urology','Package 1','23/7/2');
+VALUES (2, 'Subham', '21','Urology','package1','2021-07-02');
 
 INSERT INTO 
 TABLE treatment_plan
-VALUES ('package1', 'OPT1, OPT2' 5000, 'Guru Sai', '2021-07-15', '2021-07-25');
+VALUES (3, 'package1', 'OPT1, OPT2' 5000, 'Guru Sai', '2021-07-15', '2021-07-25');
 
 INSERT INTO TABLE insurer_detail
-VALUES ('Raj','Health', 150000, 10);
+VALUES (1, 'Raj','Health', 150000, 10);
 
 INSERT INTO 
 TABLE initiate_claim
-VALUES ('Shyam','Urology','Package1','Amit Upadhyay');
+VALUES (1, 'Shyam','Urology','Package1','Amit Upadhyay');
 
-
+-------------------------------------------------------------------------------------
+# project roles 
 -------------------------------------------------------------------------------------
 Subham Santra 		: IP treatment offerings Microservice 
 Rhishabh Kothari	: IPTreatment Microservice
