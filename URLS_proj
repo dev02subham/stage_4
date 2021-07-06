@@ -1,0 +1,39 @@
+URLs:
+
+Authorization_microservice:
+PORT : 8400
+
+1. GET :	https://localhost:8400/auth/hook
+2. GET : 	https://localhost:8400/auth/get-all
+3. POST : 	https://localhost:8400/auth/authenticate 	=> request-body {JwtRequest}
+4. POST : 	https://localhost:8400/auth/authorize 		=> request-header {Key:"Authorization", Valuse:"Bearer jwtToken"}
+
+===============================================
+IPTreatmentOffering-service:
+PORT : 8100
+
+1. GET :	https://localhost:8100/ipTreatmentOffering/ipTreatmentPackages		=> request-header {Key:"Authorization", Valuse:"Bearer jwtToken"}
+
+2. GET : 	https://localhost:8100/ipTreatmentOffering/ipTreatmentPackageByName/{ailment}/{packageName}
+											=> request-header {Key:"Authorization", Valuse:"Bearer jwtToken"}
+
+3. POST : 	https://localhost:8100/ipTreatmentOffering/specialists			=> request-header {Key:"Authorization", Valuse:"Bearer jwtToken"}
+
+4. POST : 	https://localhost:8100/ipTreatmentOffering/specialistsByExpertise/{areaOfExpertise}
+											=> request-header {Key:"Authorization", Valuse:"Bearer jwtToken"}
+
+5. POST : 	https://localhost:8100/ipTreatmentOffering/addSpecialists
+											=> request-body {SpecialistDetail}
+											=> request-header {Key:"Authorization", Valuse:"Bearer jwtToken"}
+
+6. POST : 	https://localhost:8100/ipTreatmentOffering/deleteSpecialist/{specialistId}
+											=> request-header {Key:"Authorization", Valuse:"Bearer jwtToken"}
+
+
+7. PUT : 	https://localhost:8100/ipTreatmentOffering/updatePackage/{packageId}
+											=> request-body {IPTreatmentPackage}
+											=> request-header {Key:"Authorization", Valuse:"Bearer jwtToken"}
+
+8. GET : 	https://localhost:8100/ipTreatmentOffering/health-check
+==============================================================
+
